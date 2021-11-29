@@ -41,6 +41,8 @@ public class MirapolisTest extends BaseTest {
 
         MirapolisAuthPassedPage mirapolisAuthPassedPage = new MirapolisAuthPassedPage();
         Assert.assertTrue(mirapolisAuthPassedPage.getPersonalData().contains("Сотрудник"));
+
+        mirapolisAuthPassedPage.logout();
     }
 
 //     отрицательная проверка, неверный пароль
@@ -71,6 +73,7 @@ public class MirapolisTest extends BaseTest {
         MirapolisLoginFormPage mirapolisLoginFormPage = new MirapolisLoginFormPage();
 
         StringBuilder builder = new StringBuilder(LOGIN);
+
         for (int i = 0; i <100 ; i++)
             builder = builder.append(LOGIN);
 
@@ -182,7 +185,7 @@ public class MirapolisTest extends BaseTest {
     public void loginTestNegativeUnestablishedSymbolInLogin(){
         MirapolisLoginFormPage mirapolisLoginFormPage = new MirapolisLoginFormPage();
 
-        mirapolisLoginFormPage.fillPasswordField(LOGIN.concat("\u0003"));
+        mirapolisLoginFormPage.fillLoginField(LOGIN.concat("\u0003"));
         mirapolisLoginFormPage.fillPasswordField(PASSWORD);
         mirapolisLoginFormPage.clickAtEnter();
 
