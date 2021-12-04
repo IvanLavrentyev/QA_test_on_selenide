@@ -1,4 +1,4 @@
-package Pages; // Страница личного кабинета
+package pages; // Страница личного кабинета
 
 import com.codeborne.selenide.SelenideElement;
 

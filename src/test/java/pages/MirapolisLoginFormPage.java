@@ -1,6 +1,5 @@
-package Pages;// Главная страницв тестируемого сайта
+package pages;// Главная страницв тестируемого сайта
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -9,13 +8,13 @@ public class MirapolisLoginFormPage {
     private final SelenideElement loginField = $x("//input [@placeholder='Введите ваш логин']");
     private final SelenideElement passwordField = $x("//input [@placeholder='Введите ваш пароль']");
     private final SelenideElement enterButton = $x("//button[@id='button_submit_login_form']");
-    private final SelenideElement title = Selenide.$x("//title[text()='Авторизация']");
+    private final SelenideElement title = $x("//title[text()='Авторизация']");
 
-    public SelenideElement getLoginField() {
+    public SelenideElement getLoginField(){
         return loginField;
     }
 
-    public SelenideElement getPasswordField() {
+    public SelenideElement getPasswordField(){
         return passwordField;
     }
 

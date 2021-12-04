@@ -1,4 +1,4 @@
-package Initialization; // Инициализация тестов
+package initialization; // Инициализация тестов
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

@@ -1,9 +1,9 @@
-package Tests;
+package tests;
 
-import Pages.MirapolisAuthPassedPage;
-import Pages.MirapolisLoginFormPage;
-import Pages.MirapolisOpenPage;
-import Initialization.BaseTest;
+import pages.MirapolisAuthPassedPage;
+import pages.MirapolisLoginFormPage;
+import pages.MirapolisOpenPage;
+import initialization.BaseTest;
 import com.codeborne.selenide.Selenide;
 
 import org.junit.After;
@@ -11,12 +11,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MirapolisTest extends BaseTest {
+public class MirapolisTest extends BaseTest{
 
-    private final static String BASE_URL = "https://lmslite47vr.demo.mirapolis.ru/mira";
-    private final static String TITLE = "Авторизация";
-    private final static String LOGIN = "fominaelena";
-    private final static String PASSWORD = "1P73BP4Z";
+    private final String BASE_URL = "https://lmslite47vr.demo.mirapolis.ru/mira";
+    private final String TITLE = "Авторизация";
+    private final String LOGIN = "fominaelena";
+    private final String PASSWORD = "1P73BP4Z";
 
 
     @Before
@@ -24,6 +24,7 @@ public class MirapolisTest extends BaseTest {
         MirapolisOpenPage mirapolisOpenPage = new MirapolisOpenPage();
         mirapolisOpenPage.openPage(BASE_URL);
     }
+
     // проверка заговолока открываемой страницы
     @Test
     public void checkTitle(){
@@ -41,8 +42,6 @@ public class MirapolisTest extends BaseTest {
 
         MirapolisAuthPassedPage mirapolisAuthPassedPage = new MirapolisAuthPassedPage();
         Assert.assertTrue(mirapolisAuthPassedPage.getPersonalData().contains("Сотрудник"));
-
-        mirapolisAuthPassedPage.logout();
     }
 
 //     отрицательная проверка, неверный пароль
@@ -154,7 +153,6 @@ public class MirapolisTest extends BaseTest {
         mirapolisLoginFormPage.fillLoginField(("  ").concat(LOGIN));
         mirapolisLoginFormPage.fillPasswordField(PASSWORD);
         mirapolisLoginFormPage.clickAtEnter();
-
         Assert.assertTrue(mirapolisLoginFormPage.getLoginField().getText().isEmpty());
     }
 
